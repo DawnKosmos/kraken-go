@@ -57,6 +57,8 @@ func (c *Client) GET(path string, queryParameters any, result any) (err error) {
 		reqLink.RawQuery = v.Encode()
 	}
 
+	fmt.Println(reqLink.String())
+
 	// Prepare Get Request
 	req, err := http.NewRequest("GET", reqLink.String(), nil)
 	if err != nil {
@@ -83,6 +85,7 @@ func (c *Client) GET(path string, queryParameters any, result any) (err error) {
 		return err
 	}
 	err = json.Unmarshal(body, result)
+
 	if c.isDebug {
 		// log the return code
 	}
