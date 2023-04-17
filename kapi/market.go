@@ -61,24 +61,24 @@ type Ticker struct {
 	Open            string   `json:"o"`
 }
 
-type GetOHCLVRequest struct {
+type GetOHLCRequest struct {
 	Pair     string `url:"pair"`
 	Interval int    `url:"interval,omitempty"`
 	Since    int64  `url:"since,omitempty"`
 }
 
-type GetOHCLVResponse struct {
-	Last int      `json:"last"`
-	Name []Candle `json:"name"`
+type GetOHLCResponse struct {
+	Last  int `json:"last"`
+	Pair  string
+	Chart []Candle `json:"-"`
 }
 
 type Candle struct {
 	Timestamp int64
-	Open      string
-	High      string
-	Low       string
-	Close     string
-	Vwap      string
-	Volume    string
-	Count     int
+	Open      float64
+	High      float64
+	Low       float64
+	Close     float64
+	Vwap      float64
+	Volume    float64
 }
