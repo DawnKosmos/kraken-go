@@ -12,9 +12,9 @@ func TestMarket(t *testing.T) {
 	cl, _ := New(nil, nil, true)
 
 	res4, err := cl.GetOHLC(kapi.GetOHLCRequest{
-		Pair:     "XBTUSD",
-		Interval: 1440,
-		Since:    time.Now().Add(-time.Hour * 240).Unix(),
+		Pair:     "USDC/USD",
+		Interval: 1,
+		Since:    time.Now().Add(-time.Hour * 1).Unix(),
 	})
 	assert.Nil(t, err)
 

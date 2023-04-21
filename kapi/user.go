@@ -37,5 +37,34 @@ type CancelOrderResponse struct {
 }
 
 type OpenOrderResponse struct {
-	Open map[string]any `url:"open"`
+	Open map[string]Order `url:"open"`
+}
+
+type Order struct {
+	Refid    string  `json:"refid"`
+	Userref  int     `json:"userref"`
+	Status   string  `json:"status"`
+	Opentm   float64 `json:"opentm"`
+	Starttm  int     `json:"starttm"`
+	Expiretm int     `json:"expiretm"`
+	Descr    struct {
+		Pair      string `json:"pair"`
+		Type      string `json:"type"`
+		Ordertype string `json:"ordertype"`
+		Price     string `json:"price"`
+		Price2    string `json:"price2"`
+		Leverage  string `json:"leverage"`
+		Order     string `json:"order"`
+		Close     string `json:"close"`
+	} `json:"descr"`
+	Vol        string `json:"vol"`
+	VolExec    string `json:"vol_exec"`
+	Cost       string `json:"cost"`
+	Fee        string `json:"fee"`
+	Price      string `json:"price"`
+	Stopprice  string `json:"stopprice"`
+	Limitprice string `json:"limitprice"`
+	Misc       string `json:"misc"`
+	Oflags     string `json:"oflags"`
+	Trades     string `json:"trades,omitempty"`
 }
